@@ -45,14 +45,8 @@ class Cache
 
     inline void addToHirsFront (int value);
 
-    /*
-     * If there's not enough space, remove from front
-     */
     void addToHirsBack (int value);
 
-    /*
-     * If there's not enough space, move back to the hirs_'s back
-     */
     void addToLirsFront (Block &&block);
 
 
@@ -64,10 +58,7 @@ class Cache
 public:
 
     Cache (int l_lirs, int l_hirs);
-    /*
-     * top means front, bottom means back
-     *                     end means back
-     */
+
     bool hit (int &&that);
 
     void printState (FILE* out);
