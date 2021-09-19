@@ -32,6 +32,20 @@ void testFromPaper (Cache *cache)
 
 int main ()
 {
-    Cache cache (3, 2);
-    testFromPaper (&cache);
+    int size;
+    scanf ("%d", &size);
+
+    Cache cache (size * 0.9f, size - size * 0.9f);
+
+    int hits = 0, n, page;
+    scanf ("%d", &n);
+
+    for (int i = 0; i < n; i++)
+    {
+        scanf ("%d", &page);
+        hits += cache.hit (page);
+    }
+
+    printf ("%d hits\n", hits);
+    return 0;
 }

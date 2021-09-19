@@ -127,7 +127,7 @@ Cache::Cache(int l_lirs, int l_hirs) : l_lirs_(l_lirs),
                                        lirs_()
 {}
 
-bool Cache::hit(int &&that)
+bool Cache::hit(int that)
 {
 
     std::deque<Block>::const_iterator lirs_iter;

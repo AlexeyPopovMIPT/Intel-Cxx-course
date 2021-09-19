@@ -59,7 +59,7 @@ public:
 
     Cache (int l_lirs, int l_hirs);
 
-    bool hit (int &&that);
+    bool hit (int that);
 
     void printState (FILE* out);
 
