@@ -3,8 +3,7 @@
 
 struct Plane;
 
-#include "Point.hpp"
-#include "Triangle.hpp"
+#include "Vector3.hpp"
 #include "Line.hpp"
 
 struct Plane
@@ -18,12 +17,12 @@ struct Plane
         Point_rl_Plane_t;
 
 
-    Point r_0;
-    Point normal;
+    Vector3 r_0;
+    Vector3 normal;
 
-    void constructFrom (const Point a, const Point b, const Point c);
+    void constructFrom (const Vector3 a, const Vector3 b, const Vector3 c);
 
-    Point_rl_Plane_t determineRelative (const Point &other) const;
+    Point_rl_Plane_t determineRelative (const Vector3 &other) const;
 
     Line operator* (const Plane &other) const;
 

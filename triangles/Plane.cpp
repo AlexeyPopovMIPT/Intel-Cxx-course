@@ -2,7 +2,7 @@
 #include "float_traits.hpp"
 
 
-void Plane::constructFrom (const Point a, const Point b, const Point c)
+void Plane::constructFrom (const Vector3 a, const Vector3 b, const Vector3 c)
 {
     float A[3][3] = {{ +(b.y*c.z-b.z*c.y), -(b.x*c.z-b.z*c.x), +(b.x*c.y-b.y*c.x) }, 
                      { -(a.y*c.z-a.z*c.y), +(a.x*c.z-a.z*c.x), -(a.x*c.y-a.y*c.x) },
@@ -45,9 +45,9 @@ void Plane::constructFrom (const Point a, const Point b, const Point c)
 }
 
 
-Plane::Point_rl_Plane_t Plane::determineRelative (const Point &other) const
+Plane::Point_rl_Plane_t Plane::determineRelative (const Vector3 &other) const
 {
-    Point vec0 = other - r_0;
+    Vector3 vec0 = other - r_0;
     float mul = vec0 * normal;
 
     if (isPos(mul)) return UPPER;
@@ -60,8 +60,8 @@ Line Plane::operator* (const Plane &other) const
 {
     Line result;
     result.l = normal.vectorMul(other.normal);
-    result.t1 = -INFINITY;
-    result.t2 = INFINITY;
+    result.t1_ = -INFINITY;
+    result.t2_ = INFINITY;
 
     // result.r_0 = a*this.normal + b*other.normal
 

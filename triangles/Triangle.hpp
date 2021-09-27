@@ -3,16 +3,18 @@
 
 class Triangle;
 
-#include "Point.hpp"
+#include "Vector3.hpp"
 #include "Plane.hpp"
+#include "Line.hpp"
 
 class Triangle
 {
-    Point p1, p2, p3;
+    Vector3 p1, p2, p3;
+    Vector3 side1, side2, side3;
 
     Plane plane;
 
-    bool intersect (const Triangle &other) const;
+    bool intersects (const Triangle &other) const;
 
 public:
 
@@ -26,9 +28,19 @@ public:
         Triangle_rl_Triangle_t;
 
 
-    Triangle (Point &a, Point &b, Point &c);
+    Triangle (Vector3 &a, Vector3 &b, Vector3 &c);
 
     Triangle_rl_Triangle_t determineRelative (const Triangle &other) const;
+
+    void intersectLine (Line &line) const;
+
+    inline const Vector3& getP1 () const;
+    inline const Vector3& getP2 () const;
+    inline const Vector3& getP3 () const;
+
+    inline const Vector3& getSide1 () const;
+    inline const Vector3& getSide2 () const;
+    inline const Vector3& getSide3 () const;
 
 };
 

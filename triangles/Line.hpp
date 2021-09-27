@@ -3,18 +3,25 @@
 
 struct Line;
 
-#include "Point.hpp"
+#include "Vector3.hpp"
 
 // Представляет отрезок (луч. прямую) в виде r = r_0 + tl, inf <= t1 < t < t2 <= inf
 struct Line
 {
-    Point r_0;
-    Point l;
-    float t1 = -INFINITY;
-    float t2 = INFINITY;
+    Vector3 r_0;
+    Vector3 l;
+    float t1_ = -INFINITY;
+    float t2_ = INFINITY;
 
     Line ();
-    Line (Point &r_0, Point &l, float t1 = -INFINITY, float t2 = INFINITY);
+    Line (Vector3 &r_0, Vector3 &l, float t1, float t2);
+    Line (Vector3 &r_0, Vector3 &l);
+
+    #if 0
+    void intersectBy (const Triangle &triangle);
+    #endif
+
+    float getLineLineIntersection (const Vector3 &r, const Vector3 &vec) const;
 
 };
 
