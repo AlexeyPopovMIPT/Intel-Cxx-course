@@ -35,7 +35,13 @@ int main ()
     int size;
     scanf ("%d", &size);
 
-    Cache cache (size * 0.9f, size - size * 0.9f);
+    if (size <= 0)
+    {
+        printf ("0 hits. Definitely. Why do you need a cache at all?\n");
+        return 0;
+    }
+
+    Cache cache ((int)(0.9f * size), size - (int)(0.9f * size));
 
     int hits = 0, n, page;
     scanf ("%d", &n);

@@ -60,13 +60,13 @@ void Cache::addToHirsBack(int value)
  * @Issue: what should we do if there's not enough space?
  *         (assuming move \lirs_.back to \hirs_.back)
  */
-void Cache::addToLirsFront(Block &&block)
+void Cache::addToLirsFront (Block &&block)
 {
     bool lirsfull = isLirsFull();
     lirs_.push_front(block);
     if (lirsfull)
     {
-        if (isHirsFull())
+        if (isHirsFull() && l_hirs_ != 0)
             removeFromHirs(hirs_.begin());
         hirs_.push_back(lirs_.back().value);
         lirs_.pop_back();
