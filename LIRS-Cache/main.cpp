@@ -1,5 +1,5 @@
 #include <iostream>
-#include "Cache.cpp"
+#include "Cache.hpp"
 
 const char* DUMP = "dump.txt";
 
